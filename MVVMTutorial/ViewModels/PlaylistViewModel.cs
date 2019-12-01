@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MVVMTutorial.ViewModels
 {
-    class PlaylistViewModel :BaseViewModel
+    public class PlaylistViewModel :BaseViewModel
     {
         public string Title { get; set; }
 

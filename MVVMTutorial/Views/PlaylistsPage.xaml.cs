@@ -18,7 +18,7 @@ namespace MVVMTutorial.Views
         
         public PlaylistsPage()
         {
-            BindingContext = new PlaylistsViewModel();
+            BindingContext = new PlaylistsViewModel(new PageService());
 
             InitializeComponent();
         }
