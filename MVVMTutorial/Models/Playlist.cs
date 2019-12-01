@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMTutorial.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,9 +8,9 @@ using System.Text;
 
 namespace MVVMTutorial.Models
 {
-    public class Playlist : INotifyPropertyChanged
+    public class Playlist : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public string Title { get; set; }
 
@@ -19,12 +20,7 @@ namespace MVVMTutorial.Models
             get { return _isFavorite; }
             set
             {
-                if (_isFavorite == value)
-                    return;
-
-                _isFavorite = value;
-
-                OnPropertyChanged();
+                SetValue(ref _isFavorite, value);
                 OnPropertyChanged(nameof(Color));
             }
         }
@@ -34,9 +30,6 @@ namespace MVVMTutorial.Models
             get { return IsFavorite ? Color.Pink : Color.Black; }
         }
 
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }
