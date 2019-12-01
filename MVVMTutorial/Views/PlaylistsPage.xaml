@@ -10,7 +10,7 @@
         <ToolbarItem Text="Add" Command="{Binding AddPlaylistCommand}"/>
     </ContentPage.ToolbarItems>
 
-    <ListView ItemsSource="{Binding Playlists}" SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}" ItemSelected="OnPlaylistSelected">
+    <ListView ItemsSource="{Binding Playlists}" SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}"  ItemSelected="OnPlaylistSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell 

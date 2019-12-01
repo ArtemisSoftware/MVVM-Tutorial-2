@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace MVVMTutorial.ViewModels
 {
-    class PlaylistsViewModel : BaseViewModel
+    public class PlaylistsViewModel : BaseViewModel
     {
         public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 
@@ -23,6 +23,9 @@ namespace MVVMTutorial.ViewModels
         }
 
         public ICommand AddPlaylistCommand { get; private set; }
+        public ICommand SelectPlaylistCommand { get; private set; }
+
+
         private readonly IPageService _pageService;
 
         public PlaylistsViewModel(IPageService pageService)
@@ -30,6 +33,7 @@ namespace MVVMTutorial.ViewModels
             _pageService = pageService;
 
             AddPlaylistCommand = new Command(AddPlaylist);
+            SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => await SelectPlaylist(vm));
         }
 
 
@@ -40,7 +44,7 @@ namespace MVVMTutorial.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public async Task SelectPlaylist(PlaylistViewModel playlist)
+        private async Task SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;
