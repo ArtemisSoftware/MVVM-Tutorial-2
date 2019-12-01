@@ -12,9 +12,13 @@ namespace MVVMTutorial.ViewModels
 {
     public class PlaylistsViewModel : BaseViewModel
     {
-        public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 
         private PlaylistViewModel _selectedPlaylist;
+        private readonly IPageService _pageService;
+
+
+        public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
+        
 
         public PlaylistViewModel SelectedPlaylist
         {
@@ -26,7 +30,7 @@ namespace MVVMTutorial.ViewModels
         public ICommand SelectPlaylistCommand { get; private set; }
 
 
-        private readonly IPageService _pageService;
+        
 
         public PlaylistsViewModel(IPageService pageService)
         {

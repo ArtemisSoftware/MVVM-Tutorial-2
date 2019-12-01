@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace MVVMTutorial.ViewModels
 {
-    interface IPageService
+    public interface IPageService
     {
         Task PushAsync(Page page);
         Task<bool> DisplayAlert(string title, string message, string ok, string cancel);
